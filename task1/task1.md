@@ -32,7 +32,6 @@ The Integrated Student Record Consistency Checker is designed to validate studen
 
 3. Flowchart Using Mermaid
 4. ```mermaid
-
 flowchart TD
     A([Start]) --> B[Initialize student records]
     B --> C[Create empty error list]
