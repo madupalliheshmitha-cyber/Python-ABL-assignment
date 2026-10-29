@@ -20,24 +20,24 @@ The ATM Transaction Sequence Simulation system simulates basic banking operation
 flowchart TD
     A([Start]) --> B[Initialize balance and withdrawal limit]
     B --> C[Read transaction type and amount]
-    C --> D{Is amount valid and positive?}
-    D -- No --> E[Reject transaction]
-    D -- Yes --> F{Select transaction type}
+    C --> D{Is amount positive?}
+    D -- No --> E[Reject invalid amount]
+    D -- Yes --> F{Transaction type?}
     F -- Deposit --> G[Add amount to balance]
-    F -- Withdrawal --> H{Amount within withdrawal limit?}
-    F -- Invalid --> I[Reject invalid transaction type]
+    F -- Withdrawal --> H{Within withdrawal limit?}
+    F -- Other --> I[Reject invalid transaction type]
     H -- No --> J[Reject withdrawal]
     H -- Yes --> K{Sufficient balance?}
     K -- No --> J
     K -- Yes --> L[Subtract amount from balance]
-    G --> M[Update transaction history and counters]
-    E --> M
+    E --> M[Record transaction result]
+    G --> M
     I --> M
     J --> M
     L --> M
     M --> N{More transactions?}
     N -- Yes --> C
-    N -- No --> O[Display transaction history and summary]
+    N -- No --> O[Display transaction summary]
     O --> P([Stop])
 ```
 code
