@@ -31,6 +31,7 @@ The Integrated Student Record Consistency Checker is designed to validate studen
 13.Stop the program.
 
 3. Flowchart Using Mermaid
+4. ```mermaid
 
 flowchart TD
     A([Start]) --> B[Initialize student records]
@@ -61,6 +62,7 @@ flowchart TD
     U --> D
     E -- No --> V[Display validation results]
     V --> W([Stop])
+    ```
 
 4. Python Program Code
 
