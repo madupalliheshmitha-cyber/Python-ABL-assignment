@@ -17,29 +17,29 @@ The ATM Transaction Sequence Simulation system simulates basic banking operation
 14. Stop the program.
 15. flowchart
 16. ```mermaid
-flowchart TD
+16.flowchart TD
     A([Start]) --> B[Initialize balance and withdrawal limit]
     B --> C[Read transaction type and amount]
     C --> D{Is amount positive?}
-    D -- No --> E[Reject invalid amount]
-    D -- Yes --> F{Transaction type?}
-    F -- Deposit --> G[Add amount to balance]
-    F -- Withdrawal --> H{Within withdrawal limit?}
-    F -- Other --> I[Reject invalid transaction type]
-    H -- No --> J[Reject withdrawal]
-    H -- Yes --> K{Sufficient balance?}
-    K -- No --> J
-    K -- Yes --> L[Subtract amount from balance]
+    D -->|No| E[Reject invalid amount]
+    D -->|Yes| F{Transaction type?}
+    F -->|Deposit| G[Add amount to balance]
+    F -->|Withdrawal| H{Within withdrawal limit?}
+    F -->|Other| I[Reject invalid transaction type]
+    H -->|No| J[Reject withdrawal]
+    H -->|Yes| K{Sufficient balance?}
+    K -->|No| J
+    K -->|Yes| L[Subtract amount from balance]
     E --> M[Record transaction result]
     G --> M
     I --> M
     J --> M
     L --> M
     M --> N{More transactions?}
-    N -- Yes --> C
-    N -- No --> O[Display transaction summary]
-    O --> P([End])
-```
+    N -->|Yes| C
+    N -->|No| O[Display transaction summary]
+    O --> P([End]) 
+ ```  
 code
 # ATM Transaction Sequence Simulation
 
