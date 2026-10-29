@@ -21,20 +21,15 @@ flowchart TD
     A([Start]) --> B[Initialize balance and withdrawal limit]
     B --> C[Read transaction type and amount]
     C --> D{Is amount valid and positive?}
-
     D -- No --> E[Reject transaction]
     D -- Yes --> F{Select transaction type}
-
     F -- Deposit --> G[Add amount to balance]
     F -- Withdrawal --> H{Amount within withdrawal limit?}
     F -- Invalid --> I[Reject invalid transaction type]
-
     H -- No --> J[Reject withdrawal]
     H -- Yes --> K{Sufficient balance?}
-
     K -- No --> J
     K -- Yes --> L[Subtract amount from balance]
-
     G --> M[Update transaction history and counters]
     E --> M
     I --> M
