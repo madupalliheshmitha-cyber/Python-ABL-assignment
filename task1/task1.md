@@ -31,37 +31,51 @@ The Integrated Student Record Consistency Checker is designed to validate studen
 13.Stop the program.
 
 3. Flowchart Using Mermaid
-4. ```mermaid
+4.```mermaid
+### 3. Flowchart Using Mermaid
+
+```mermaid
 flowchart TD
     A([Start]) --> B[Initialize student records]
     B --> C[Create empty error list]
     C --> D[Select a student record]
     D --> E{More records available?}
+
     E -- Yes --> F[Check student ID]
     F --> G{ID missing or duplicated?}
     G -- Yes --> H[Record ID error]
     G -- No --> I[Check student name]
     H --> I
+
     I --> J{Name missing?}
     J -- Yes --> K[Record name error]
     J -- No --> L[Validate marks]
     K --> L
+
     L --> M{Marks between 0 and 100?}
     M -- No --> N[Record marks error]
     M -- Yes --> O[Validate attendance]
     N --> O
+
     O --> P{Attendance between 0 and 100?}
     P -- No --> Q[Record attendance error]
     P -- Yes --> R[Check course record]
     Q --> R
+
     R --> S{Course missing or invalid?}
     S -- Yes --> T[Record course error]
     S -- No --> U[Check remaining fields]
     T --> U
+
     U --> D
-    E -- No --> V[Display validation results]
-    V --> W([Stop])
-    ```
+
+    E -- No --> V{Any errors found?}
+    V -- Yes --> X[Display validation errors]
+    V -- No --> Y[Display all records are consistent]
+
+    X --> W([Stop])
+    Y --> W
+```
 
 4. Python Program Code
 
